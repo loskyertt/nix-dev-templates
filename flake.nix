@@ -1,7 +1,7 @@
 {
   description = "Personal dev templates";
 
-  outputs = { self, ... }: {        # <-- 这里把 self 留下来
+  outputs = { self, ... }: {
     templates = {
       c-cpp = {
         path        = ./c-cpp;
