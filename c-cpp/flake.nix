@@ -19,7 +19,8 @@
           cmake              # 构建工具
           ninja              # 更快的构建后端
           clang-tools        # 包含 clangd (LSP), clang-format, clang-tidy
-          gdb                # 调试器
+          gdb                # gdb 调试器
+          lldb_20            # lldb 调试器
         ];
 
         # 2. 运行时依赖库 (第三方库放这里)
