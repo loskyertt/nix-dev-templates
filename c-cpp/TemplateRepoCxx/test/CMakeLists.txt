@@ -1,17 +1,13 @@
 # for each "test/x.cpp", generate target "x"
 message("CMakeLists.txt for test directory")
 
-file(GLOB_RECURSE all_tests *.cpp)
+file(GLOB_RECURSE ALL_TESTS *.cpp)
 
-foreach(v ${all_tests})
+foreach(v ${ALL_TESTS})
   message("Processing: ${v}")
-  # 获取相对于 test/ 的路径
-  file(RELATIVE_PATH relative_path ${PROJECT_SOURCE_DIR}/test ${v})
-  # 替换路径分隔符为下划线，并去掉扩展名
-  string(REPLACE "/" "_" target_name ${relative_path})
-  message("Relative path: ${relative_path}")
+  file(RELATIVE_PATH relative_path ${PROJECT_SOURCE_DIR}/test ${v})  # 获取相对于 test/ 的路径
+  string(REPLACE "/" "_" target_name ${relative_path})  # 替换路径分隔符为下划线，并去掉扩展名
   get_filename_component(target_name ${target_name} NAME_WE)
-  message("Target name: ${target_name}")
 
   add_executable(${target_name} ${v})
 

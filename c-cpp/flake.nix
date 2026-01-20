@@ -27,17 +27,20 @@
         buildInputs = with pkgs; [
           # 示例：添加常用库
           llvmPackages.openmp
+          eigen
           boost
           nlohmann_json
           fmt
         ];
 
-        # 环境变量设置
+        # 3. 环境变量设置
+        CMAKE_EXPORT_COMPILE_COMMANDS=1;
+        VERBOSE=1;
+
+        # 4. 脚本
         shellHook = ''
           echo "C++ 开发环境已加载！"
           echo "编译器: $(clang --version | head -n 1)"
-          # 告诉 CMake 如何找到 Nix 安装的库
-          export CMAKE_EXPORT_COMPILE_COMMANDS=1
         '';
       };
     };
