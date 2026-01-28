@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.20.0)
 
+# --- 1. 配置编译器 ---
 # 只在第一次配置时生效；用户手动 -D CMAKE_C_COMPILER=... 仍可覆盖
 if(NOT CMAKE_C_COMPILER)
   if(WIN32)
@@ -25,10 +26,13 @@ if(NOT CMAKE_C_COMPILER)
   endif()
 endif()
 
+# --- 2. 基本配置 ---
+# 配置 C++ 和 C 标准
 set(CMAKE_CXX_STANDARD 20)
 # set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
 
+# 配置默认构建类型为 Release
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
   message("Setting default build type to Release...")
@@ -42,6 +46,7 @@ if(WIN32)
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 endif()
 
+# --- 3. 项目模块配置 ---
 project(my_project_name VERSION 0.0.1 LANGUAGES C CXX)
 
 message("\n--------------------------------------------")
