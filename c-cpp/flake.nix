@@ -35,7 +35,7 @@
 
         # 3. 环境变量设置
         CMAKE_EXPORT_COMPILE_COMMANDS=1;
-        VERBOSE=1;
+        VERBOSE=1;  # 用 ninja 构建时输出详细信息
 
         # 4. 脚本
         shellHook = ''
